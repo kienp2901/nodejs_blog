@@ -1,1 +1,16 @@
-<h1>HOME PAGE</h1>
+<div class="container col-8">
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {{#each listData}}
+    <tr>
+        <td>{{id}} </td>        
+        <td>{{name}} </td>
+        <td>{{description}} </td>
+    </tr>
+    {{/each}}
+  </table>
+</div>
