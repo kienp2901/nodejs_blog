@@ -1,16 +1,20 @@
-<div class="container col-8">
-<table class="table table-bordered">
-    <tr>
-        <th>id</th>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    {{#each listData}}
-    <tr>
-        <td>{{id}} </td>        
-        <td>{{name}} </td>
-        <td>{{description}} </td>
-    </tr>
-    {{/each}}
-  </table>
+<div class="mt-4">
+    <div class="row">
+        {{#each listData}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-course-item" style="width: 18rem;">
+                <a href="/course/{{slug}}">
+                    <img class="card-img-top" src="/images/upload_images/{{image}}" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <a href="/course/{{slug}}">
+                        <h5 class="card-title">{{name}}</h5>
+                    </a>
+                    <p class="card-text">{{description}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </div>

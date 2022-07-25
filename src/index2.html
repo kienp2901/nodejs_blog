@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#log{
+            width: 800px;
+            height: 300px;
+            margin: 0 auto;
+            border: 5px solid black;
+            border-radius: 7px;
+        }
+        div#sendCtrls{
+            width: 235px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="log"></div>
+    <div id="sendCtrls">
+        <input type="text" name="" placeholder="Your message here" id="text">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    
+    
+</body>
+<script>
+    // Create WebSocket connection.
+    const socket = new WebSocket('ws://localhost:3000');
+    var log = document.getElementById('log');
+    var name = prompt('What is your name fella ?');
+
+    socket.onopen = function(){
+        socket.send(JSON.stringify({
+            type: "name",
+            data: name
+        }));
+    }
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        //socket.send('Hello Server!');
+        console.log('Connected to WS Server')
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+        var json = JSON.parse(event.data);
+        log.innerHTML += json.type+": "+json.data+"<br>";
+    });
+
+    const sendMessage = () => {
+        var text = document.getElementById('text').value;
+        //socket.send(text);
+
+        socket.send(JSON.stringify({
+            type: "message",
+            data: text
+        }));
+
+        log.innerHTML += "You: "+text+"<br>";
+    }
+</script>
+</html>

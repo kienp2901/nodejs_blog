@@ -1,0 +1,26 @@
+<div class="mt-4">
+    <form method="post" action="/course/{{listData.[0].id}}/update" enctype="multipart/form-data"> 
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{listData.[0].name}}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{listData.[0].description}}">
+        </div>
+        <div class="form-group">
+            <label for="videoId">VideoId</label>
+            <input type="text" class="form-control" id="videoId" name="videoId" value="{{listData.[0].videoId}}">
+        </div>
+        <div class="form-group">
+            <label for="level">Level</label>
+            <input type="text" class="form-control" id="level" name="level" value="{{listData.[0].level}}">
+        </div>
+        <div class="form-group">
+            <label for="image">Hình ảnh</label>
+            <p><img class="card-img-top" style="width: 80px; height: 80px;" src="/images/upload_images/{{listData.[0].image}}" alt="Card image cap"></p>
+            <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+    </form>
+</div>

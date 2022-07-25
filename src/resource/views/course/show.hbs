@@ -1,0 +1,15 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <button>HỌC NGAY</button>
+            <ul>
+                <li>{{ listData.[0].level }}</li>
+            </ul>
+        </div>
+        <div class="col-lg-9">
+            <h2>{{ listData.[0].name }}</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ listData.[0].videoId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>{{ listData.[0].description }}</p>
+        </div>
+    </div>
+</div>
